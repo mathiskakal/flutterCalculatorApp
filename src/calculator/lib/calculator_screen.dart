@@ -42,6 +42,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           ),
 
           // Buttons section ===========
+          Wrap(
+            children: [],
+          )
         ], ),
       )
     );
