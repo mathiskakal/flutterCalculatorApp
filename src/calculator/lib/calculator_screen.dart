@@ -73,20 +73,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       child: Material(
 
         // If the value of the button corresponds to clr or del, as per defined in button class, set its color to blueGrey, otherwise if...
-        color: [Btn.del,Btn.clr,Btn].contains(value)?Colors.blueGrey
-
-        // they are the following:
-        :[
-          Btn.per,
-          Btn.multiply,
-          Btn.divide,
-          Btn.add,
-          Btn.subtract,
-          Btn.divide,
-          Btn.calculate,
-
-          // Make them Orange or finally black if they don't correspond
-          ].contains(value)?Colors.orange:Colors.black87,
+        color: getBtnColor(value),
 
         // The button's animation will not overflow out of the newly defined border
         clipBehavior: Clip.hardEdge,
@@ -106,6 +93,26 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         ),
       ),
     );
+  }
+
+  Color getBtnColor(value){
+    return [Btn.del,Btn.clr,Btn].contains(value)?Colors.blueGrey
+
+        // they are the following:
+        :[
+          Btn.per,
+          Btn.multiply,
+          Btn.divide,
+          Btn.add,
+          Btn.subtract,
+          Btn.divide,
+          Btn.calculate,
+
+          // Make them Orange
+          ].contains(value)?Colors.orange
+          
+          // or finally black if they don't correspond
+          :Colors.black87;
   }
 
 }
